@@ -49,6 +49,12 @@ class SmartSaveUI(QtWidgets.QDialog):
         self.folder_browse_btn.clicked.connect(self._browse_folder)
         self.save_btn.clicked.connect(self._save)
         self.save_increment_btn.clicked.connect(self._save_increment)
+        self.cancel_btn.clicked.connect(self.cancel)
+
+    @QtCore.Slot()
+    def cancel(self):
+        """Quits the dialog"""
+        self.close()
 
     @QtCore.Slot()
     def _save_increment(self):
@@ -82,9 +88,11 @@ class SmartSaveUI(QtWidgets.QDialog):
     def _create_button_ui(self):
         self.save_btn = QtWidgets.QPushButton("Save")
         self.save_increment_btn = QtWidgets.QPushButton("Save Increment")
+        self.cancel_btn = QtWidgets.QPushButton("Cancel")
         layout = QtWidgets.QHBoxLayout()
         layout.addWidget(self.save_btn)
         layout.addWidget(self.save_increment_btn)
+        layout.addWidget(self.cancel_btn)
         return layout
 
     def _create_filename_ui(self):
