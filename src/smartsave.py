@@ -143,7 +143,7 @@ class SceneFile(object):
 
     def __init__(self, path=None):
         self._folder_path = Path(cmds.workspace(query=True,
-                                               rootDirectory=True)) / "scenes"
+                                                rootDirectory=True)) / "scenes"
         self.descriptor = 'main'
         self.task = 'model'
         self.ver = 1
